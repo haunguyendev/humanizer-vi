@@ -19,7 +19,7 @@ Artifact chạy thật là `SKILL.md`: agent đọc YAML frontmatter (metadata +
 
 `SKILL.md` và `README.md` phải luôn đồng bộ. Khi thay đổi hành vi hoặc nội dung:
 
-- **Pattern:** skill hiện định nghĩa **29 pattern đánh số** (chia 5 nhóm A–E; pattern 29 về gạch ngang dài bổ sung ở bản 1.1.0). Nếu thêm/bớt/đánh số lại pattern nào, cập nhật đồng thời: bảng pattern trong README, số "N pattern" ở heading, và mọi tham chiếu chéo trong cùng một lần sửa. Giữ số ổn định trừ khi cố ý đánh số lại.
+- **Pattern:** skill hiện định nghĩa **32 pattern đánh số** (chia 5 nhóm A–E; pattern 29 gạch ngang dài bổ sung ở 1.1.0; pattern 30–32 cú pháp dịch máy / mở bài bách khoa / nhịp câu lặp bổ sung ở 1.2.0). Nếu thêm/bớt/đánh số lại pattern nào, cập nhật đồng thời: bảng pattern trong README, số "N pattern" ở heading, và mọi tham chiếu chéo trong cùng một lần sửa. Giữ số ổn định trừ khi cố ý đánh số lại.
 - **Section riêng của tiếng Việt:** hai section "KHÔNG được flag — cụm/thể thức hành chính chuẩn (NĐ30)" và "Văn phong hành chính chuẩn" là đặc trưng của bản này (thay cho `PERSONALITY AND SOUL` của bản gốc). Không xóa; đây là lớp bảo vệ để không phá văn bản hành chính.
 - **Phiên bản:** frontmatter `SKILL.md` có `version:`, `README.md` có mục "Lịch sử phiên bản", `.claude-plugin/plugin.json` có `version`. Bump cùng lúc. (`marketplace.json` cố ý không có version để `plugin.json` là nguồn chuẩn.)
 - **Ghi công & giấy phép:** GIỮ copyright gốc trong `LICENSE` (bắt buộc theo MIT) và giữ đoạn ghi công `blader/humanizer` trong README. Chỉ được thêm, không được xóa.

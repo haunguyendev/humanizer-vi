@@ -68,7 +68,7 @@ Skill có **hai chế độ**:
 
 Nếu không chắc loại văn bản, skill mặc định chế độ Hành chính và hỏi lại.
 
-## 29 pattern nhận diện
+## 32 pattern nhận diện
 
 Chia 5 nhóm. Xem ví dụ trước/sau chi tiết trong `SKILL.md`.
 
@@ -80,6 +80,7 @@ Chia 5 nhóm. Xem ví dụ trước/sau chi tiết trong `SKILL.md`.
 | 3 | Ngôn ngữ hoa mỹ, quảng cáo | "trù phú, thơ mộng, phong phú đa dạng, giàu bản sắc" |
 | 4 | Quy kết mơ hồ, từ né tránh | "Nhiều ý kiến cho rằng", "Không thể phủ nhận" không nguồn |
 | 5 | Mục "khó khăn & phương hướng" công thức | Khối rập khuôn rỗng (giữ mục bắt buộc, thay nội dung cụ thể) |
+| 31 | Mở bài định nghĩa kiểu bách khoa | "X là một... nằm ở... đóng vai trò quan trọng" (bổ sung v1.2.0) |
 
 ### Nhóm B — Từ vựng & ngữ pháp
 | STT | Pattern | Mô tả ngắn |
@@ -92,6 +93,8 @@ Chia 5 nhóm. Xem ví dụ trước/sau chi tiết trong `SKILL.md`.
 | 11 | Xoay vòng từ đồng nghĩa | Đổi tên gọi cùng chủ thể liên tục |
 | 12 | Câu dài lê thê nối bằng dấu phẩy | Một câu nhiều mệnh đề → tách câu |
 | 13 | Bị động, khuyết chủ ngữ lạm dụng | "được... một cách..." (giữ bị động hành chính hợp lệ) |
+| 30 | Cú pháp dịch máy Anh→Việt | "và/hoặc", "đối với việc", chuỗi "của" liên hoàn (bổ sung v1.2.0) |
+| 32 | Nhịp câu lặp đều, song song máy móc | ≥3 câu cùng khuôn chủ-vị liên tiếp (bổ sung v1.2.0) |
 
 ### Nhóm C — Định dạng
 | STT | Pattern | Mô tả ngắn |
@@ -129,6 +132,7 @@ Trong chế độ Hành chính, skill **không** sửa các thành phần thể 
 
 ## Lịch sử phiên bản
 
+- **1.2.0** — Cập nhật lớn sau vòng review nội bộ (3 reviewer). Thêm **HAI NGUYÊN TẮC BẤT BIẾN** ở đầu: (1) KHÔNG bịa số liệu — sửa các ví dụ để bản "Sau" không chèn số/nguồn không có trong bản gốc; (2) KHÔNG sửa thể thức NĐ30 + quy tắc chống over-edit "≥2 dấu hiệu mới sửa". Thêm 3 pattern: 30 (cú pháp dịch máy Anh→Việt), 31 (mở bài kiểu bách khoa), 32 (nhịp câu lặp đều) → tổng 32. Mở rộng section "KHÔNG được flag" theo Điều 8/13 + Phụ lục I/II NĐ30 (độ mật/độ khẩn, tên loại văn bản in hoa, số/ký hiệu, địa danh-ngày tháng, khối Nơi nhận/Căn cứ, phụ lục, chữ ký số, thuật ngữ bản sao). Thêm ngoại lệ register khoa học (danh từ hóa cú pháp), checklist thể thức 11 mục, và xử lý tracked changes.
 - **1.1.0** — Thêm pattern 29 (gạch ngang dài em dash `—`/`–`) vào nhóm Định dạng. Lý do: kiểm thử trên văn bản hành chính thực tế cho thấy em dash là dấu vết AI phổ biến trong tiếng Việt (bàn phím Việt không gõ sẵn, văn bản NĐ30 không dùng). Có ngoại lệ: giữ gạch nối `-` trong Tiêu ngữ và khoảng số. Tổng: 29 pattern.
 - **1.0.0** — Bản Việt hóa đầu tiên, ưu tiên văn bản hành chính theo NĐ 30/2020. Viết lại 28 pattern (5 nhóm), cắt 4 pattern chỉ-tiếng-Anh, thêm các pattern đặc trưng tiếng Việt (từ vựng mùi AI VN, cặp đồng nghĩa thừa, danh từ hóa thừa, viết hoa sai chuẩn...). Thêm hai section riêng: "KHÔNG được flag — thể thức NĐ30" và "Văn phong hành chính chuẩn" (thay cho "PERSONALITY AND SOUL" của bản gốc). Hai chế độ: Hành chính (mặc định) và Content thường.
 

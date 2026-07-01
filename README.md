@@ -1,6 +1,6 @@
 # Humanizer-VI
 
-Một agent skill thuần Markdown giúp khử "mùi AI" trong văn bản tiếng Việt, ưu tiên **văn bản hành chính** theo Nghị định 30/2020/NĐ-CP. Vì là Markdown thuần, skill chạy được trong mọi harness hỗ trợ dạng skill (Claude Code, Codex, OpenCode...).
+Một agent skill thuần Markdown giúp gỡ "dấu vết AI" trong văn bản tiếng Việt, ưu tiên **văn bản hành chính** theo Nghị định 30/2020/NĐ-CP. Vì là Markdown thuần, skill chạy được trong mọi harness hỗ trợ dạng skill (Claude Code, Codex, OpenCode...).
 
 Mục tiêu: bỏ dấu hiệu văn bản do AI tạo (thổi phồng, sáo rỗng, cường điệu rỗng...) nhưng **giữ đúng văn phong công vụ trang trọng** — không biến công văn/tờ trình/báo cáo thành giọng đời thường.
 
@@ -54,16 +54,16 @@ cp SKILL.md /path/to/your/skills/humanizer-vi/
 
 ## Cách dùng
 
-Đưa văn bản cần khử mùi AI cho skill. Một số ví dụ prompt:
+Đưa văn bản cần gỡ dấu vết AI cho skill. Một số ví dụ prompt:
 
-- "Khử mùi AI đoạn báo cáo này (văn bản hành chính)."
+- "Gỡ dấu vết AI đoạn báo cáo này (văn bản hành chính)."
 - "Rà lại tờ trình sau, bỏ chữ sáo nhưng giữ nguyên thể thức và giọng công vụ."
 - "Đây là bài giới thiệu (content thường), cho có giọng điệu tự nhiên."
-- "Khử mùi AI đoạn này. Đây là mẫu văn phong của tôi để bám theo: [mẫu]."
+- "Gỡ dấu vết AI đoạn này. Đây là mẫu văn phong của tôi để bám theo: [mẫu]."
 
 Skill có **hai chế độ**:
 
-- **Hành chính (mặc định):** bỏ mùi AI, giữ văn phong công vụ trang trọng, không thêm cá tính; tuyệt đối giữ thể thức và cụm hành chính bắt buộc (Căn cứ..., Kính gửi:, Nơi nhận:, Trân trọng...).
+- **Hành chính (mặc định):** bỏ dấu vết AI, giữ văn phong công vụ trang trọng, không thêm cá tính; tuyệt đối giữ thể thức và cụm hành chính bắt buộc (Căn cứ..., Kính gửi:, Nơi nhận:, Trân trọng...).
 - **Content thường (tùy chọn):** chỉ bật khi bạn nói rõ; được phép thêm giọng điệu, cá tính, ngôi thứ nhất — như bản humanizer gốc.
 
 Nếu không chắc loại văn bản, skill mặc định chế độ Hành chính và hỏi lại.
@@ -85,7 +85,7 @@ Chia 5 nhóm. Xem ví dụ trước/sau chi tiết trong `SKILL.md`.
 ### Nhóm B — Từ vựng & ngữ pháp
 | STT | Pattern | Mô tả ngắn |
 |-----|---------|------------|
-| 6 | Từ vựng "mùi AI" tiếng Việt | "vô cùng, sâu sắc, toàn diện, mạnh mẽ; đẩy mạnh, tăng cường, nâng cao" |
+| 6 | Từ vựng "dấu vết AI" tiếng Việt | "vô cùng, sâu sắc, toàn diện, mạnh mẽ; đẩy mạnh, tăng cường, nâng cao" |
 | 7 | Cặp đồng nghĩa thừa (song tiết hóa) | "triển khai thực hiện, tổ chức thực hiện, đảm bảo duy trì" |
 | 8 | Danh từ hóa thừa "việc/công tác + động từ" | "việc triển khai công tác tổ chức" → động từ trực tiếp |
 | 9 | Đối xứng phủ định | Lạm dụng "Không chỉ... mà còn..." |
@@ -132,10 +132,11 @@ Trong chế độ Hành chính, skill **không** sửa các thành phần thể 
 
 ## Lịch sử phiên bản
 
+- **1.2.2** — Đổi thuật ngữ cho trung tính: "khử mùi AI" → "gỡ dấu vết AI", "mùi AI" → "dấu vết AI" xuyên suốt tài liệu. Không đổi hành vi/pattern.
 - **1.2.1** — Trau an toàn sau vòng kiểm định (cả 3 reviewer PASS): pattern 32 thêm ngoại lệ giữ khối "Căn cứ"/"Nơi nhận"; bảo vệ rõ khối chữ ký (chức vụ và họ tên người ký).
 - **1.2.0** — Cập nhật lớn sau vòng review nội bộ (3 reviewer). Thêm **HAI NGUYÊN TẮC BẤT BIẾN** ở đầu: (1) KHÔNG bịa số liệu — sửa các ví dụ để bản "Sau" không chèn số/nguồn không có trong bản gốc; (2) KHÔNG sửa thể thức NĐ30 + quy tắc chống over-edit "≥2 dấu hiệu mới sửa". Thêm 3 pattern: 30 (cú pháp dịch máy Anh→Việt), 31 (mở bài kiểu bách khoa), 32 (nhịp câu lặp đều) → tổng 32. Mở rộng section "KHÔNG được flag" theo Điều 8/13 + Phụ lục I/II NĐ30 (độ mật/độ khẩn, tên loại văn bản in hoa, số/ký hiệu, địa danh-ngày tháng, khối Nơi nhận/Căn cứ, phụ lục, chữ ký số, thuật ngữ bản sao). Thêm ngoại lệ register khoa học (danh từ hóa cú pháp), checklist thể thức 11 mục, và xử lý tracked changes.
 - **1.1.0** — Thêm pattern 29 (gạch ngang dài em dash `—`/`–`) vào nhóm Định dạng. Lý do: kiểm thử trên văn bản hành chính thực tế cho thấy em dash là dấu vết AI phổ biến trong tiếng Việt (bàn phím Việt không gõ sẵn, văn bản NĐ30 không dùng). Có ngoại lệ: giữ gạch nối `-` trong Tiêu ngữ và khoảng số. Tổng: 29 pattern.
-- **1.0.0** — Bản Việt hóa đầu tiên, ưu tiên văn bản hành chính theo NĐ 30/2020. Viết lại 28 pattern (5 nhóm), cắt 4 pattern chỉ-tiếng-Anh, thêm các pattern đặc trưng tiếng Việt (từ vựng mùi AI VN, cặp đồng nghĩa thừa, danh từ hóa thừa, viết hoa sai chuẩn...). Thêm hai section riêng: "KHÔNG được flag — thể thức NĐ30" và "Văn phong hành chính chuẩn" (thay cho "PERSONALITY AND SOUL" của bản gốc). Hai chế độ: Hành chính (mặc định) và Content thường.
+- **1.0.0** — Bản Việt hóa đầu tiên, ưu tiên văn bản hành chính theo NĐ 30/2020. Viết lại 28 pattern (5 nhóm), cắt 4 pattern chỉ-tiếng-Anh, thêm các pattern đặc trưng tiếng Việt (từ vựng dấu vết AI VN, cặp đồng nghĩa thừa, danh từ hóa thừa, viết hoa sai chuẩn...). Thêm hai section riêng: "KHÔNG được flag — thể thức NĐ30" và "Văn phong hành chính chuẩn" (thay cho "PERSONALITY AND SOUL" của bản gốc). Hai chế độ: Hành chính (mặc định) và Content thường.
 
 ## Giấy phép
 

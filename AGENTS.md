@@ -4,7 +4,7 @@ Hướng dẫn cho các AI coding agent (Claude Code, Codex, Warp...) khi làm v
 
 ## Repo này là gì
 
-`humanizer-vi` là một agent skill thuần Markdown, **fork tiếng Việt** của [`blader/humanizer`](https://github.com/blader/humanizer) (MIT). Bản này viết lại toàn bộ để khử "mùi AI" trong tiếng Việt, **ưu tiên văn bản hành chính** theo Nghị định 30/2020/NĐ-CP.
+`humanizer-vi` là một agent skill thuần Markdown, **fork tiếng Việt** của [`blader/humanizer`](https://github.com/blader/humanizer) (MIT). Bản này viết lại toàn bộ để gỡ "dấu vết AI" trong tiếng Việt, **ưu tiên văn bản hành chính** theo Nghị định 30/2020/NĐ-CP.
 
 Artifact chạy thật là `SKILL.md`: agent đọc YAML frontmatter (metadata + allowed tools) rồi đến phần prompt biên tập. Không có bước build, không có code để chạy. Ngôn ngữ của skill (hướng dẫn + ví dụ) là tiếng Việt.
 

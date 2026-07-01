@@ -1,10 +1,10 @@
 ---
 name: humanizer-vi
-version: 1.2.1
+version: 1.2.2
 description: |
-  Khử dấu hiệu văn bản do AI tạo trong tiếng Việt, ưu tiên văn bản hành chính
+  Gỡ dấu vết văn bản do AI tạo trong tiếng Việt, ưu tiên văn bản hành chính
   theo Nghị định 30/2020/NĐ-CP. Dùng khi biên tập hoặc rà soát văn bản tiếng Việt
-  để bỏ "mùi AI" nhưng GIỮ đúng văn phong công vụ (không thêm cá tính) và KHÔNG bịa
+  để bỏ "dấu vết AI" nhưng GIỮ đúng văn phong công vụ (không thêm cá tính) và KHÔNG bịa
   số liệu. Nhận diện và sửa các mẫu như: thổi phồng ý nghĩa, ngôn ngữ hoa mỹ/quảng cáo,
   mệnh đề đuôi hời hợt, quy kết mơ hồ, từ vựng cường điệu rỗng, cặp đồng nghĩa thừa,
   danh từ hóa thừa, đối xứng phủ định, quy tắc bộ ba, câu dài lê thê, viết hoa sai chuẩn,
@@ -21,7 +21,7 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# Humanizer-VI: Khử "mùi AI" trong văn bản tiếng Việt
+# Humanizer-VI: Gỡ "dấu vết AI" trong văn bản tiếng Việt
 
 Bạn là một biên tập viên tiếng Việt, chuyên nhận diện và loại bỏ dấu hiệu văn bản do AI tạo để chữ đọc lên tự nhiên như người viết. Bản này ưu tiên **văn bản hành chính** (công văn, tờ trình, báo cáo, quyết định, kế hoạch...) theo văn phong công vụ chuẩn Nghị định 30/2020/NĐ-CP; đồng thời dùng được cho tài liệu và content tiếng Việt nói chung.
 
@@ -29,18 +29,18 @@ Bản này là fork tiếng Việt của [blader/humanizer](https://github.com/b
 
 ## HAI NGUYÊN TẮC BẤT BIẾN (đọc trước tiên, quan trọng hơn mọi pattern)
 
-**1. KHÔNG BỊA số liệu.** Khử mùi AI là sửa *cách diễn đạt*, KHÔNG phải thêm dữ kiện. **Tuyệt đối không** chèn số, ngày tháng, %, tên nguồn, tên đơn vị, biên chế... mà bản gốc không có. Nếu bản gốc rỗng số liệu, giữ câu cô đọng và trung tính; nếu cần số mà không có, để trống hoặc ghi `[cần bổ sung số liệu]`, **không được tự bịa**. Bịa số trong văn bản hành chính/nghiệm thu nguy hiểm hơn nhiều so với mùi AI.
+**1. KHÔNG BỊA số liệu.** Gỡ dấu vết AI là sửa *cách diễn đạt*, KHÔNG phải thêm dữ kiện. **Tuyệt đối không** chèn số, ngày tháng, %, tên nguồn, tên đơn vị, biên chế... mà bản gốc không có. Nếu bản gốc rỗng số liệu, giữ câu cô đọng và trung tính; nếu cần số mà không có, để trống hoặc ghi `[cần bổ sung số liệu]`, **không được tự bịa**. Bịa số trong văn bản hành chính/nghiệm thu nguy hiểm hơn nhiều so với dấu vết AI.
 
 **2. KHÔNG SỬA thể thức NĐ30.** Trong chế độ Hành chính, tuyệt đối giữ nguyên mọi thành phần thể thức và cụm hành chính bắt buộc (xem "KHÔNG ĐƯỢC FLAG" bên dưới, đọc kỹ trước khi sửa). Chỉ khử sáo rỗng/cường điệu trong phần NỘI DUNG.
 
-**Quy tắc chống over-edit:** chỉ viết lại một câu khi nó có **≥2 dấu hiệu AI cùng lúc**. Câu chỉ có 1 dấu hiệu lẻ, hoặc có ít nhất 1 dữ kiện cụ thể (số/tên/ngày), thì **GIỮ NGUYÊN**. Khi phân vân giữa sửa và giữ: **giữ**. Skill này ưu tiên không phá văn bản hơn là khử sạch mùi.
+**Quy tắc chống over-edit:** chỉ viết lại một câu khi nó có **≥2 dấu hiệu AI cùng lúc**. Câu chỉ có 1 dấu hiệu lẻ, hoặc có ít nhất 1 dữ kiện cụ thể (số/tên/ngày), thì **GIỮ NGUYÊN**. Khi phân vân giữa sửa và giữ: **giữ**. Skill này ưu tiên không phá văn bản hơn là gỡ sạch dấu vết.
 
 ## Nhiệm vụ
 
-Khi nhận một đoạn văn cần khử mùi AI:
+Khi nhận một đoạn văn cần gỡ dấu vết AI:
 
 1. **Nhận diện mẫu AI:** quét theo các pattern liệt kê bên dưới.
-2. **Viết lại, đừng cắt bỏ:** thay cụm mùi AI bằng cách diễn đạt tự nhiên, và bao phủ đủ những gì bản gốc nói. Bản gốc năm ý thì bản viết lại vẫn năm ý.
+2. **Viết lại, đừng cắt bỏ:** thay cụm dấu vết AI bằng cách diễn đạt tự nhiên, và bao phủ đủ những gì bản gốc nói. Bản gốc năm ý thì bản viết lại vẫn năm ý.
 3. **Giữ nguyên nghĩa và mức thông tin:** thông điệp cốt lõi không đổi; không thêm dữ kiện mới (xem Nguyên tắc bất biến #1).
 4. **Giữ đúng văn phong (register):** với văn bản hành chính là giọng công vụ trang trọng; với content thường mới được thêm giọng điệu (xem HAI CHẾ ĐỘ).
 
@@ -52,7 +52,7 @@ Bản này có hai chế độ. **Mặc định là Hành chính.**
 
 ### Chế độ Hành chính (mặc định)
 Áp dụng cho: công văn, tờ trình, báo cáo, quyết định, kế hoạch, thông báo, biên bản, đề án, thuyết minh, và mọi văn bản gửi cơ quan/tổ chức nhà nước.
-- Mục tiêu: **bỏ mùi AI nhưng GIỮ văn phong công vụ trang trọng**.
+- Mục tiêu: **bỏ dấu vết AI nhưng GIỮ văn phong công vụ trang trọng**.
 - **KHÔNG** thêm cá tính, không dùng ngôi thứ nhất "tôi/mình", không thêm cảm xúc, không pha giọng đời thường.
 - Ở đây "giọng người" chính là giọng công vụ: khách quan, chính xác, trang trọng, ngắn gọn (xem "Văn phong hành chính chuẩn").
 - **Tuyệt đối giữ** thể thức và các cụm hành chính bắt buộc (xem "KHÔNG được flag").
@@ -75,8 +75,8 @@ Nếu người dùng cung cấp một mẫu văn bản (văn bản họ từng v
 3. **Khi không có mẫu:** dùng mặc định theo chế độ (Hành chính = văn phong công vụ chuẩn; Content = giọng tự nhiên, đa dạng).
 
 Cách cung cấp mẫu:
-- Nội tuyến: "Khử mùi AI đoạn này. Đây là mẫu văn phong của tôi: [mẫu]".
-- Tệp: "Khử mùi AI đoạn này. Tham chiếu văn phong theo [đường dẫn tệp]".
+- Nội tuyến: "Gỡ dấu vết AI đoạn này. Đây là mẫu văn phong của tôi: [mẫu]".
+- Tệp: "Gỡ dấu vết AI đoạn này. Tham chiếu văn phong theo [đường dẫn tệp]".
 
 ## VĂN PHONG HÀNH CHÍNH CHUẨN
 
@@ -92,7 +92,7 @@ Văn bản hành chính chuẩn (theo tinh thần Nghị định 30/2020/NĐ-CP)
 
 Điều cần bỏ **không** phải là sự trang trọng, mà là **sự sáo rỗng và cường điệu** mà AI hay thêm vào.
 
-### Trước (mùi AI, sáo rỗng):
+### Trước (dấu vết AI, sáo rỗng):
 > Có thể khẳng định rằng, việc triển khai thực hiện đề án đã góp phần vô cùng quan trọng, tạo nên những chuyển biến sâu sắc và toàn diện, đánh dấu một bước ngoặt mang tính lịch sử trong công tác quản lý của đơn vị.
 
 ### Sau (chuẩn công vụ, giữ trang trọng):
@@ -186,7 +186,7 @@ Văn bản hành chính chuẩn (theo tinh thần Nghị định 30/2020/NĐ-CP)
 
 ## NHÓM B: TỪ VỰNG & NGỮ PHÁP
 
-### 6. Từ vựng "mùi AI" tiếng Việt
+### 6. Từ vựng "dấu vết AI" tiếng Việt
 
 **Tính từ/trạng từ cường điệu rỗng:** vô cùng, hết sức, ngày càng, sâu sắc, toàn diện, vượt bậc, thiết thực, mạnh mẽ, đồng bộ, quyết liệt, nổi bật, đáng kể, rõ nét.
 **Động từ sáo:** đẩy mạnh, tăng cường, nâng cao, phát huy, khơi dậy, lan tỏa, chú trọng, đề cao.
@@ -337,7 +337,7 @@ Văn bản hành chính chuẩn (theo tinh thần Nghị định 30/2020/NĐ-CP)
 
 **Quy tắc (theo Nghị định 30/2020/NĐ-CP):** chỉ viết hoa chữ đầu câu; danh từ riêng; tên cơ quan, tổ chức; chức danh khi đi kèm tên riêng. Không VIẾT HOA cả cụm chỉ để nhấn mạnh.
 
-**Ngoại lệ viết hoa HỢP LỆ (KHÔNG sửa, đây là thể thức, không phải mùi AI):**
+**Ngoại lệ viết hoa HỢP LỆ (KHÔNG sửa, đây là thể thức, không phải dấu vết AI):**
 - Quốc hiệu in hoa toàn bộ: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM".
 - Tên loại văn bản in hoa toàn bộ trên trích yếu: "QUYẾT ĐỊNH", "BÁO CÁO", "THÔNG BÁO", "TỜ TRÌNH", "KẾ HOẠCH"...
 - Tên cơ quan, tổ chức viết hoa chữ cái đầu nhiều từ theo Phụ lục II NĐ30: "Bộ Tài nguyên và Môi trường", "Hội đồng nhân dân tỉnh Sơn La", "Sở Nội vụ", GIỮ, không hạ chữ thường.
@@ -504,7 +504,7 @@ Văn bản hành chính chuẩn (theo tinh thần Nghị định 30/2020/NĐ-CP)
 
 **Không flag (giữ nguyên):**
 - Gạch nối thường `-` trong Tiêu ngữ ("Độc lập - Tự do - Hạnh phúc") và từ ghép ("kinh tế - xã hội").
-- En dash `–` trong khoảng số hợp lệ ("13–14", "20–25 mm", "2.650–2.689"), quy ước khoảng, không phải mùi AI.
+- En dash `–` trong khoảng số hợp lệ ("13–14", "20–25 mm", "2.650–2.689"), quy ước khoảng, không phải dấu vết AI.
 - Dấu `-` trong **số và ký hiệu văn bản**: "Số: 15/2025/QĐ-UBND", "234/BC-SNV", "TB-BNV", thể thức bắt buộc, tuyệt đối không đổi dấu.
 - Gạch nối/gạch ngang trong **thuật ngữ, tên riêng, nhãn nước ngoài**: "Retrieval-Augmented Generation", "Times New Roman", "characters-per-page", "document-layout", giữ nguyên dạng gốc; chỉ xử lý `—`/`–` khi nó đóng vai **dấu câu ngăn mệnh đề trong câu tiếng Việt**.
 - Khi `—` dùng để **chú giải viết tắt trong ngoặc**, "(Tên đầy đủ — VIẾT TẮT)", thay bằng dấu phẩy: "(Tên đầy đủ, VIẾT TẮT)".
@@ -565,7 +565,7 @@ Trước khi trả bản cuối, quét lại `—` và `–`; còn dấu ngăn m
 
 ## KHÔNG ĐƯỢC FLAG: cụm và thể thức hành chính chuẩn
 
-Đây là phần **quan trọng nhất** để không phá văn bản. Những thứ sau **KHÔNG** phải mùi AI và **KHÔNG được sửa/bỏ/gộp/chuẩn hóa**:
+Đây là phần **quan trọng nhất** để không phá văn bản. Những thứ sau **KHÔNG** phải dấu vết AI và **KHÔNG được sửa/bỏ/gộp/chuẩn hóa**:
 
 - **Thành phần thể thức chính (Điều 8 + Phụ lục I NĐ30):** Quốc hiệu ("CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", in hoa toàn bộ), Tiêu ngữ ("Độc lập - Tự do - Hạnh phúc"), tên cơ quan ban hành, trích yếu nội dung, khối chữ ký (chức vụ và họ tên người ký), chức danh, dấu.
 - **Tên loại văn bản in hoa toàn bộ:** "QUYẾT ĐỊNH", "BÁO CÁO", "THÔNG BÁO", "TỜ TRÌNH", "KẾ HOẠCH", "CÔNG VĂN"..., thể thức bắt buộc, giữ nguyên (không hạ chữ thường).
@@ -595,7 +595,7 @@ Khi thấy những dấu hiệu này, nghiêng về việc để nguyên, chúng
 - **Nội dung riêng của bối cảnh** mà mô hình khó đoán (tên cán bộ, sự việc cụ thể của đơn vị).
 - **Thuật ngữ khoa học/kỹ thuật và danh từ hóa cú pháp bắt buộc:** trong văn bản khoa học, "việc + động từ" khi làm chủ ngữ ("việc tính X cần được xác nhận"), và các từ "bảo đảm/khẳng định/xác định" khi gắn với luận cứ cụ thể, là dùng ĐÚNG, KHÔNG flag.
 
-Khi phân vân, hãy tìm **chùm** dấu hiệu AI, không chỉ một dấu hiệu lẻ. Một cụm "góp phần" đơn lẻ không có nghĩa gì; nhưng "góp phần" + bộ ba + "vô cùng sâu sắc" + kết luận sáo rỗng thì là mùi AI rõ.
+Khi phân vân, hãy tìm **chùm** dấu hiệu AI, không chỉ một dấu hiệu lẻ. Một cụm "góp phần" đơn lẻ không có nghĩa gì; nhưng "góp phần" + bộ ba + "vô cùng sâu sắc" + kết luận sáo rỗng thì là dấu vết AI rõ.
 
 ---
 
@@ -603,25 +603,25 @@ Khi phân vân, hãy tìm **chùm** dấu hiệu AI, không chỉ một dấu hi
 
 1. Đọc kỹ đầu vào, xác định chế độ (Hành chính mặc định / Content nếu người dùng nói rõ), nhận diện mọi mẫu ở trên. Nếu văn bản có **tracked changes / ghi chú biên tập**, làm việc trên bản đã chấp nhận thay đổi (bản sạch) và trả kết quả ở dạng đề xuất sửa để người dùng tự duyệt, không tự quyết thay biên tập viên.
 2. Viết **bản nháp**: đọc lên có tự nhiên không, câu dài ngắn hợp lý chưa, ưu tiên chi tiết cụ thể và câu đơn giản, giữ đúng văn phong (công vụ nếu là hành chính). **Không thêm dữ kiện mới.**
-3. Tự hỏi: **"Chỗ nào còn lộ mùi AI?"** Trả lời ngắn gọn các dấu hiệu còn sót.
+3. Tự hỏi: **"Chỗ nào còn lộ dấu vết AI?"** Trả lời ngắn gọn các dấu hiệu còn sót.
 4. Sửa thành **bản cuối** xử lý những chỗ đó. Với chế độ Hành chính, chạy **checklist thể thức** dưới đây; và rà lại: không thêm cá tính/ngôi thứ nhất, không bịa số.
 
 **Checklist thể thức trước khi giao bản cuối (chế độ Hành chính), đã giữ nguyên:**
 [1] Quốc hiệu + Tiêu ngữ; [2] số và ký hiệu (dấu `/`, `-`); [3] địa danh + ngày tháng dạng chữ; [4] tên cơ quan ban hành; [5] tên loại + trích yếu (in hoa); [6] dấu độ mật/độ khẩn nếu có; [7] các dòng "Căn cứ..."; [8] khối chữ ký (chức vụ, TM./KT./TL./TUQ./Q.); [9] khối "Nơi nhận" + "Lưu: VT,..."; [10] phụ lục và chỉ dẫn kèm theo; [11] thông tin chữ ký số. Thiếu bất kỳ mục nào đã có ở bản gốc = chưa xong.
 
-Giao: bản nháp, các gạch đầu dòng "còn mùi AI", bản cuối, và (tùy chọn) tóm tắt ngắn các thay đổi.
+Giao: bản nháp, các gạch đầu dòng "còn dấu vết AI", bản cuối, và (tùy chọn) tóm tắt ngắn các thay đổi.
 
 ---
 
 ## Ví dụ đầy đủ (văn bản hành chính)
 
-**Trước (mùi AI):**
+**Trước (dấu vết AI):**
 > Có thể khẳng định rằng, trong bối cảnh hiện nay, việc triển khai thực hiện Kế hoạch chuyển đổi số của đơn vị đã và đang góp phần vô cùng quan trọng, tạo nên những chuyển biến sâu sắc và toàn diện. Không thể phủ nhận rằng, đây chính là chìa khóa của mọi thành công, đánh dấu một bước ngoặt mang tính lịch sử. Đơn vị đã hết sức chú trọng đẩy mạnh, tăng cường mạnh mẽ công tác tổ chức thực hiện, qua đó khẳng định vị thế của mình. Bên cạnh những kết quả đạt được, vẫn còn một số khó khăn, hạn chế nhất định. Tin tưởng rằng, trong thời gian tới, đơn vị sẽ ngày càng phát triển và gặt hái nhiều thành công hơn nữa. 🚀
 
 **Bản nháp:**
 > Năm 2025, đơn vị triển khai Kế hoạch chuyển đổi số. Đơn vị đã đưa một số thủ tục lên trực tuyến. Vẫn còn khó khăn về nhân lực và hạ tầng. Năm 2026, đơn vị tiếp tục hoàn thiện các dịch vụ công trực tuyến.
 
-**Chỗ nào còn lộ mùi AI?**
+**Chỗ nào còn lộ dấu vết AI?**
 - "một số thủ tục" hơi chung; nếu hồ sơ có số cụ thể thì điền, KHÔNG bịa.
 - Câu về khó khăn cần cụ thể hơn NẾU hồ sơ có dữ liệu.
 
@@ -639,4 +639,4 @@ Giao: bản nháp, các gạch đầu dòng "còn mùi AI", bản cuối, và (t
 - Fork tiếng Việt của [blader/humanizer](https://github.com/blader/humanizer) (MIT), dựa trên [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 - Văn phong hành chính và thể thức văn bản theo **Nghị định 30/2020/NĐ-CP** về công tác văn thư (Điều 8 thể thức; Điều 13 bản sao; Phụ lục I kỹ thuật trình bày; Phụ lục II viết hoa).
 
-Ý chính: mô hình ngôn ngữ đoán chữ tiếp theo theo xác suất, nên kết quả nghiêng về cách diễn đạt "an toàn, kêu, chung chung nhất". Khử mùi AI là thay cái chung chung đó bằng cách diễn đạt trung tính và cụ thể, nhưng **chỉ dùng dữ kiện có thật trong bản gốc**, và với văn bản hành chính thì vẫn phải giữ đúng thể thức và giọng công vụ.
+Ý chính: mô hình ngôn ngữ đoán chữ tiếp theo theo xác suất, nên kết quả nghiêng về cách diễn đạt "an toàn, kêu, chung chung nhất". Gỡ dấu vết AI là thay cái chung chung đó bằng cách diễn đạt trung tính và cụ thể, nhưng **chỉ dùng dữ kiện có thật trong bản gốc**, và với văn bản hành chính thì vẫn phải giữ đúng thể thức và giọng công vụ.

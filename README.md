@@ -68,7 +68,7 @@ Skill có **hai chế độ**:
 
 Nếu không chắc loại văn bản, skill mặc định chế độ Hành chính và hỏi lại.
 
-## 28 pattern nhận diện
+## 29 pattern nhận diện
 
 Chia 5 nhóm. Xem ví dụ trước/sau chi tiết trong `SKILL.md`.
 
@@ -101,6 +101,7 @@ Chia 5 nhóm. Xem ví dụ trước/sau chi tiết trong `SKILL.md`.
 | 16 | Emoji | Cắt sạch (VBHC không có emoji) |
 | 17 | Lạm dụng VIẾT HOA & viết hoa sai chuẩn | Theo quy tắc viết hoa NĐ30 (thay "title case" tiếng Anh) |
 | 18 | Đầu mục rời rạc | Heading rồi câu lặp lại heading |
+| 29 | Gạch ngang dài (em dash `—`/`–`) | Thay `—` bằng dấu chấm/phẩy/hai chấm; giữ gạch nối `-` trong Tiêu ngữ và khoảng số (bổ sung v1.1.0) |
 
 ### Nhóm D — Dấu vết chatbot
 | STT | Pattern | Mô tả ngắn |
@@ -120,7 +121,7 @@ Chia 5 nhóm. Xem ví dụ trước/sau chi tiết trong `SKILL.md`.
 | 27 | Công thức cách ngôn | "X là chìa khóa của Y", "X là linh hồn của Z" |
 | 28 | Mở đầu giả thân mật | "Thật lòng mà nói", "Nói thẳng ra" |
 
-**Đã cắt so với bản gốc (4 pattern chỉ đặc trưng tiếng Anh):** em dash `—`, cặp từ gạch nối (`high-quality`), viết hoa kiểu "title case" (không có trong tiếng Việt → thay bằng pattern 17), dấu ngoặc kép cong (hạ thành ghi chú nhỏ).
+**Đã cắt so với bản gốc (3 pattern chỉ đặc trưng tiếng Anh):** cặp từ gạch nối (`high-quality`), viết hoa kiểu "title case" (không có trong tiếng Việt → thay bằng pattern 17), dấu ngoặc kép cong (hạ thành ghi chú nhỏ). *Từ v1.1.0, em dash `—` được đưa lại thành pattern 29 vì thực tế đây cũng là dấu vết AI phổ biến trong tiếng Việt.*
 
 ## Không được flag (bảo vệ văn bản hành chính)
 
@@ -128,6 +129,7 @@ Trong chế độ Hành chính, skill **không** sửa các thành phần thể 
 
 ## Lịch sử phiên bản
 
+- **1.1.0** — Thêm pattern 29 (gạch ngang dài em dash `—`/`–`) vào nhóm Định dạng. Lý do: kiểm thử trên văn bản hành chính thực tế cho thấy em dash là dấu vết AI phổ biến trong tiếng Việt (bàn phím Việt không gõ sẵn, văn bản NĐ30 không dùng). Có ngoại lệ: giữ gạch nối `-` trong Tiêu ngữ và khoảng số. Tổng: 29 pattern.
 - **1.0.0** — Bản Việt hóa đầu tiên, ưu tiên văn bản hành chính theo NĐ 30/2020. Viết lại 28 pattern (5 nhóm), cắt 4 pattern chỉ-tiếng-Anh, thêm các pattern đặc trưng tiếng Việt (từ vựng mùi AI VN, cặp đồng nghĩa thừa, danh từ hóa thừa, viết hoa sai chuẩn...). Thêm hai section riêng: "KHÔNG được flag — thể thức NĐ30" và "Văn phong hành chính chuẩn" (thay cho "PERSONALITY AND SOUL" của bản gốc). Hai chế độ: Hành chính (mặc định) và Content thường.
 
 ## Giấy phép

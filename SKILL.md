@@ -1,6 +1,6 @@
 ---
 name: humanizer-vi
-version: 1.0.0
+version: 1.1.0
 description: |
   Khử dấu hiệu văn bản do AI tạo trong tiếng Việt, ưu tiên văn bản hành chính
   theo Nghị định 30/2020/NĐ-CP. Dùng khi biên tập hoặc rà soát văn bản tiếng Việt
@@ -88,7 +88,7 @@ Văn bản hành chính chuẩn (theo tinh thần Nghị định 30/2020/NĐ-CP)
 
 ## CÁC PATTERN
 
-28 pattern, chia 5 nhóm. Mỗi pattern gồm: cụm cần chú ý → vấn đề → ví dụ Trước → ví dụ Sau.
+29 pattern, chia 5 nhóm (28 mục gốc + pattern 29 về gạch ngang dài, bổ sung ở bản 1.1.0). Mỗi pattern gồm: cụm cần chú ý → vấn đề → ví dụ Trước → ví dụ Sau.
 
 ---
 
@@ -446,6 +446,24 @@ Văn bản hành chính chuẩn (theo tinh thần Nghị định 30/2020/NĐ-CP)
 
 **Sau:**
 > Dự án có tỷ suất hoàn vốn dự kiến 14%/năm nên đáng cân nhắc đầu tư.
+
+### 29. Gạch ngang dài (em dash `—`) và gạch nối dài (en dash `–`)
+
+*(Thuộc nhóm Định dạng; bổ sung ở bản 1.1.0.)*
+
+**Vấn đề:** Bàn phím tiếng Việt không gõ sẵn `—`/`–`, và văn bản hành chính chuẩn không dùng gạch ngang dài để chèn mệnh đề phụ. Khi văn bản có nhiều `—` (nhất là dạng ` — ` ngăn một mệnh đề giải thích, hoặc `——` do lỗi chế bản), đó là dấu vết văn bản do AI/máy tạo. Thay `—`/`–` bằng, theo thứ tự ưu tiên: dấu chấm (tách câu mới), dấu phẩy (mệnh đề chêm ngắn), dấu hai chấm (mở phần giải thích), hoặc viết lại câu.
+
+**Không flag:**
+- Gạch nối thường `-` trong Tiêu ngữ ("Độc lập - Tự do - Hạnh phúc") và từ ghép ("kinh tế - xã hội").
+- En dash `–` trong khoảng số hợp lệ ("13–14", "20–25 mm", "2.650–2.689") — đây là quy ước khoảng, không phải mùi AI.
+
+**Trước:**
+> Mô hình ngôn ngữ lớn — LLM — phục vụ công tác quản lý nhà nước tại Sở. Phương pháp reflow —— dàn lại văn bản gốc — cho kết quả bảo thủ.
+
+**Sau:**
+> Mô hình ngôn ngữ lớn (LLM) phục vụ công tác quản lý nhà nước tại Sở. Phương pháp reflow dàn lại văn bản gốc, cho kết quả bảo thủ.
+
+Trước khi trả bản cuối, quét lại `—` và `–`; còn dấu ngăn mệnh đề nghĩa là chưa xong.
 
 ---
 

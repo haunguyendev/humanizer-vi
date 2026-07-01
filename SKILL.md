@@ -1,6 +1,6 @@
 ---
 name: humanizer-vi
-version: 1.2.0
+version: 1.2.1
 description: |
   Khử dấu hiệu văn bản do AI tạo trong tiếng Việt, ưu tiên văn bản hành chính
   theo Nghị định 30/2020/NĐ-CP. Dùng khi biên tập hoặc rà soát văn bản tiếng Việt
@@ -551,6 +551,8 @@ Trước khi trả bản cuối, quét lại `—` và `–`; còn dấu ngăn m
 
 **Dấu hiệu:** ≥3 câu hoặc gạch đầu dòng liên tiếp mở đầu bằng CÙNG chủ ngữ + CÙNG khuôn động từ ("Đơn vị đã X. Đơn vị đã Y. Đơn vị đã Z."); các vế liệt kê dài bằng nhau bất thường.
 
+**Không flag:** khối "Căn cứ ...;" và khối "Nơi nhận:" tuy lặp cấu trúc nhưng là thể thức bắt buộc — GIỮ nguyên (xem "KHÔNG ĐƯỢC FLAG").
+
 **Vấn đề:** Nhịp đều tăm tắp là dấu vết máy. Văn người viết có câu dài ngắn xen kẽ. Gộp, đảo trật tự, hoặc đổi độ dài câu.
 
 **Trước:**
@@ -565,7 +567,7 @@ Trước khi trả bản cuối, quét lại `—` và `–`; còn dấu ngăn m
 
 Đây là phần **quan trọng nhất** để không phá văn bản. Những thứ sau **KHÔNG** phải mùi AI và **KHÔNG được sửa/bỏ/gộp/chuẩn hóa**:
 
-- **Thành phần thể thức chính (Điều 8 + Phụ lục I NĐ30):** Quốc hiệu ("CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", in hoa toàn bộ), Tiêu ngữ ("Độc lập - Tự do - Hạnh phúc"), tên cơ quan ban hành, trích yếu nội dung, chữ ký, chức danh, dấu.
+- **Thành phần thể thức chính (Điều 8 + Phụ lục I NĐ30):** Quốc hiệu ("CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", in hoa toàn bộ), Tiêu ngữ ("Độc lập - Tự do - Hạnh phúc"), tên cơ quan ban hành, trích yếu nội dung, khối chữ ký (chức vụ và họ tên người ký), chức danh, dấu.
 - **Tên loại văn bản in hoa toàn bộ:** "QUYẾT ĐỊNH", "BÁO CÁO", "THÔNG BÁO", "TỜ TRÌNH", "KẾ HOẠCH", "CÔNG VĂN"..., thể thức bắt buộc, giữ nguyên (không hạ chữ thường).
 - **Số và ký hiệu văn bản:** "Số: 15/2025/QĐ-UBND", "Số: 234/BC-SNV", giữ nguyên dấu `/` và `-`, không chuẩn hóa.
 - **Địa danh và thời gian ban hành:** "Hà Nội, ngày 05 tháng 3 năm 2020", giữ dạng chữ "ngày ... tháng ... năm ...", không rút thành "05/3/2020".

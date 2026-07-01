@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "humanizer-vi",
+  "description": "Khử dấu hiệu văn bản do AI tạo trong tiếng Việt, ưu tiên văn bản hành chính theo Nghị định 30/2020/NĐ-CP. Fork tiếng Việt của blader/humanizer.",
+  "version": "1.0.0",
+  "author": {
+    "name": "haunguyendev",
+    "url": "https://github.com/haunguyendev"
+  },
+  "homepage": "https://github.com/haunguyendev/humanizer-vi",
+  "repository": "https://github.com/haunguyendev/humanizer-vi",
+  "license": "MIT",
+  "keywords": ["writing", "editing", "ai-detection", "humanize", "vietnamese", "tieng-viet", "hanh-chinh", "nghi-dinh-30", "van-ban"]
+}
